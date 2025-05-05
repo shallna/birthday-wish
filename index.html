@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Aimin Arif!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fbeee0;
+      font-family: 'Lilita One', cursive;
+      text-align: center;
+      padding: 60px 20px;
+      overflow: hidden;
+      margin: 0;
+    }
+    h1 {
+      font-size: 3em;
+      color: #5e412f;
+    }
+    p {
+      font-size: 1.4em;
+      color: #3e3e3e;
+      margin: 20px 0;
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      background-color: #d9a066;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #b67c42;
+    }
+    img {
+      width: 220px;
+      border-radius: 18px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #ffe0b3;
+      animation: fall 3s linear infinite;
+      top: -10px;
+      border-radius: 50%;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    /* RESPONSIF UNTUK TELEFON */
+    @media (max-width: 600px) {
+      body {
+        padding: 30px 10px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.2em;
+      }
+      button {
+        width: 90%;
+        font-size: 1.1em;
+      }
+      img {
+        width: 70%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bdayAudio" loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h1>•ﻌ• Happy Birthday, Aimin Arif ! ฅ^>⩊<^ฅ</h1>
+  <img src="4a75a9f1-d16d-4831-bc84-2f136bd52f8b.png" alt="Birthday Cat">
+  <p id="message">Click the button to reveal your birthday message •ᴗ•</p>
+  <button onclick="playMusic(); showWish()">Show Wish</button>
+
+  <script>
+    function playMusic() {
+      var audio = document.getElementById("bdayAudio");
+      audio.play();
+    }
+
+    function showWish() {
+      document.getElementById("message").innerText =
+        "Happy Birthday, Aimin Arif ! Wishing you a fantastic day filled with happiness and great moments. May this year bring you even more success, joy, and amazing memories !";
+      launchConfetti();
+    }
+
+    function launchConfetti() {
+      for (let i = 0; i < 80; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor =
+          ["#fddbb0", "#eacda3", "#f5deb3", "#ffe4b5", "#fbe8a6"][Math.floor(Math.random() * 5)];
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>
